@@ -83,9 +83,16 @@ class ApiController extends Controller
    public function atualizarUsuario(Request $request)
    {
        $user = User::where('api_token', $request->input('api_token'))->first();
-       $user->fill($request->all());
-       $user->save();
-
-       return Response::json(true);
+       if( !empty($user) )
+       {
+           $user->fill($request->all());
+           $user->password = Hash::make($request['password']);
+           $user->save();
+           return Response::json(true);
+       }
+       else
+       {
+           return Response::json(false);
+       }
    }
 }
