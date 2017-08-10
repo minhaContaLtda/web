@@ -9,9 +9,9 @@ web:
     environment:
         DB_HOST: db
         DB_PORT: 5432
-        DB_DATABASE: dbname
-        DB_USERNAME: username
-        DB_PASSWORD: p455w0rd
+        DB_DATABASE: minhaConta
+        DB_USERNAME: postgres
+        DB_PASSWORD: postgres
         DB_CONNECTION: pgsql
 db:
     image: postgres
@@ -22,6 +22,8 @@ db:
         #MYSQL_PASSWORD: p455w0rd
 
         # with postgres
-        POSTGRES_DB: dbname
-        POSTGRES_USER: username
-        POSTGRES_PASSWORD: p455w0rd
+        POSTGRES_DB: minhaConta
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+    ports:
+        - "5432:5432"
