@@ -58,3 +58,19 @@ Route::group(['prefix' => 'usuario'], function()
         Route::get('obterDados', 'ApiController@obterDadosUsuario');
     });
 });
+
+
+/**
+ * Usuário (/api/leitura/)
+ */
+Route::group(['prefix' => 'leitura'], function()
+{
+    Route::group(['middleware' => 'api'], function()
+    {
+        /**
+         * Atualiza perfil do usuário
+         * /api/leitura/registrar
+         */
+        Route::post('registrar', 'LeituraController@registrar');
+    });
+});
