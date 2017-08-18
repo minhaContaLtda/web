@@ -68,6 +68,12 @@ Route::group(['prefix' => 'leitura'], function()
     Route::group(['middleware' => 'api'], function()
     {
         /**
+         *  Detecta texto de imagem
+         * * /api/leitura/detectartexto
+         */
+        Route::post('detectartexto', 'LeituraController@detectarTexto');
+
+        /**
          * Atualiza perfil do usuário
          * /api/leitura/registrar
          */
