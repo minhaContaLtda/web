@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Leitura;
 use App\User;
 use Google\Cloud\Vision\VisionClient;
-use Google_Client;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class LeituraController extends Controller
 {
@@ -22,8 +20,7 @@ class LeituraController extends Controller
         //Salva a imagem
         $path = $request->imagem->storeAs('leituras', $leitura->id . '.jpg');
 
-
-        return response()->json($path);
+        return response()->json(true);
     }
 
     public function detectarTexto(Request $request)
